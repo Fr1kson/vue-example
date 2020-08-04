@@ -26,8 +26,9 @@
             :key="index"
             v-for="(marker, index) in markers"
             :position="marker"
-            :clickable="false"
+            :clickable="true"
             :draggable="false"
+            :title="'123123'"
         />
       </GmapMap>
       <div
@@ -42,6 +43,7 @@
       <div class="second-screen__back" @click="popupShow">
         <img alt="Vue logo" src="../images/arrow.svg">
       </div>
+      <div class="second-screen__back2"></div>
       <div class="input-wrapper">
         <div class="input-wrapper__title">
           Property Address
@@ -50,6 +52,20 @@
             placeholder="Enter the address"
             @place_changed="setMarker">
         </gmap-autocomplete>
+      </div>
+
+      <div class="input-wrapper">
+        <div class="input-wrapper__title">
+          Property Title
+        </div>
+        <input type="text" placeholder="Your property title">
+      </div>
+
+      <div class="input-wrapper">
+        <div class="input-wrapper__title">
+          Describe more about your property
+        </div>
+        <input type="text" placeholder="Enter any notes here...">
       </div>
       <div
           class="gmaps-container__btn"
@@ -119,7 +135,7 @@ export default class HelloWorld extends Vue {
     top: 60px;
     .input-wrapper {
       width: calc(100% - 40px);
-      margin: 40px 20px 0 20px;
+      margin: 50px 20px 0 20px;
       overflow: hidden;
       input {
         max-width: 500px;
@@ -132,6 +148,7 @@ export default class HelloWorld extends Vue {
         text-align: left;
         font-size: 18px;
         margin-bottom: 20px;
+        font-weight: bold;
       }
     }
     &__back {
@@ -140,7 +157,7 @@ export default class HelloWorld extends Vue {
       width: 60px;
       height: 60px;
       position: absolute;
-
+      background-color: #d52420;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -148,6 +165,14 @@ export default class HelloWorld extends Vue {
       svg {
         width: 45px;
       }
+    }
+    &__back2 {
+      right: 0;
+      top: -60px;
+      width: 60px;
+      height: 60px;
+      position: absolute;
+      background-color: #d52420;
     }
   }
   &__map {
