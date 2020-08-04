@@ -22,7 +22,6 @@ body, html {
   overflow: hidden;
 }
 #app {
-  overflow: hidden;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;

@@ -142,6 +142,7 @@ export default class HelloWorld extends Vue {
     position: fixed;
     width: 100%;
     top: 60px;
+    overflow: scroll;
     .input-wrapper {
       width: calc(100% - 40px);
       margin: 50px 20px 0 20px;
