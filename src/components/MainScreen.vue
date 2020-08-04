@@ -112,14 +112,17 @@ export default class HelloWorld extends Vue {
   .second-screen {
     height: calc(100vh - 60px);
     background: #fff;
-    width: 100%;
+    max-width: 540px;
     z-index: 101;
     position: fixed;
+    width: 100%;
     top: 60px;
     .input-wrapper {
       width: calc(100% - 40px);
       margin: 40px 20px 0 20px;
+      overflow: hidden;
       input {
+        max-width: 500px;
         border: none;
         width: 100%;
         border-bottom: 1px solid grey;
