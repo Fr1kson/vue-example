@@ -27,6 +27,11 @@ body {
   color: #2c3e50;
   max-width: 540px;
   margin: 0 auto;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
 }
 
 html, body, div, span, applet, object, iframe,
