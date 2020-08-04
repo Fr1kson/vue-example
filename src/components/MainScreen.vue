@@ -201,7 +201,7 @@ export default class HelloWorld extends Vue {
     top: 70px;
     z-index: 100;
     left: 20px;
-    right: 20px;
+    right: 60px;
     input {
       width: 100%;
       height: 38px;
