@@ -187,6 +187,10 @@ export default class HelloWorld extends Vue {
       width: 95px;
       margin-top: 30px;
     }
+    .gmaps-container__btn {
+      position: static;
+      margin-top: 120px;
+    }
   }
   &__map {
     height: 100%;
@@ -225,7 +229,7 @@ export default class HelloWorld extends Vue {
     line-height: 46px;
     border-radius: 40px;
     @media (max-width: 540px) {
-      bottom: 80px;
+      bottom: 120px;
     }
   }
 }
