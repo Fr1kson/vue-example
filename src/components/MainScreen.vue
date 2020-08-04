@@ -38,12 +38,11 @@
         POST YOUR AD
       </div>
     </div>
-
+    <div class="second-screen__back" v-if="popup" @click="popupShow">
+      <img alt="Vue logo" src="../images/arrow.svg">
+    </div>
+    <div class="second-screen__back2" v-if="popup"></div>
     <div class="second-screen" v-if="popup">
-      <div class="second-screen__back" @click="popupShow">
-        <img alt="Vue logo" src="../images/arrow.svg">
-      </div>
-      <div class="second-screen__back2"></div>
       <img class="second-screen__add" alt="Vue logo" src="../images/addPhoto.png">
       <div class="input-wrapper">
         <div class="input-wrapper__title">
@@ -163,10 +162,10 @@ export default class HelloWorld extends Vue {
     }
     &__back {
       left: 0;
-      top: -60px;
+      top: 0;
       width: 60px;
       height: 60px;
-      position: absolute;
+      position: fixed;
       background-color: #D50320;
       display: flex;
       align-items: center;
@@ -178,10 +177,10 @@ export default class HelloWorld extends Vue {
     }
     &__back2 {
       right: 0;
-      top: -60px;
+      top: 0;
       width: 60px;
       height: 60px;
-      position: absolute;
+      position: fixed;
       background-color: #D50320;
     }
     &__add {
