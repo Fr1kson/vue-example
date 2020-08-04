@@ -129,7 +129,6 @@ export default class HelloWorld extends Vue {
 <style scoped lang="scss">
 .gmaps-container {
   padding-top: 60px;
-  overflow: hidden;
   height: calc(100vh - 60px);
   width: 100%;
   .first-screen {
