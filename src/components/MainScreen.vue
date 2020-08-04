@@ -224,6 +224,9 @@ export default class HelloWorld extends Vue {
     font-size: 21px;
     line-height: 46px;
     border-radius: 40px;
+    @media (max-width: 540px) {
+      bottom: 80px;
+    }
   }
 }
 </style>
