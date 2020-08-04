@@ -28,7 +28,7 @@
             :position="marker"
             :clickable="true"
             :draggable="false"
-            :title="'123123'"
+            :label="marker.title"
         />
       </GmapMap>
       <div
@@ -44,13 +44,14 @@
         <img alt="Vue logo" src="../images/arrow.svg">
       </div>
       <div class="second-screen__back2"></div>
+      <img class="second-screen__add" alt="Vue logo" src="../images/addPhoto.png">
       <div class="input-wrapper">
         <div class="input-wrapper__title">
           Property Address
         </div>
         <gmap-autocomplete
             placeholder="Enter the address"
-            @place_changed="setMarker">
+            @place_changed="marker">
         </gmap-autocomplete>
       </div>
 
@@ -58,7 +59,7 @@
         <div class="input-wrapper__title">
           Property Title
         </div>
-        <input type="text" placeholder="Your property title">
+        <input type="text" placeholder="Your property title" v-model="title">
       </div>
 
       <div class="input-wrapper">
@@ -69,7 +70,7 @@
       </div>
       <div
           class="gmaps-container__btn"
-          @click="popupShow"
+          @click="setMarker"
       >
         POST
       </div>
@@ -84,21 +85,29 @@ import {db} from "@/firebase/firebase";
 
 @Component
 export default class HelloWorld extends Vue {
-  private readonly center = {lat:54.9590287, lng:73.39482319999999};
+  private center = {lat:54.9590287, lng:73.39482319999999};
   private markers: any = [];
   private popup = false;
+  public title = "";
+  private autocompleteInfo: any;
 
   private async changeCenter (payload: any): Promise<void> {
     this.center.lat = payload.geometry.location.lat();
     this.center.lng = payload.geometry.location.lng();
   }
 
-  private async setMarker (payload: any): Promise<void> {
+  private async marker (payload: any): Promise<void> {
+    this.autocompleteInfo = payload;
     this.center.lat = payload.geometry.location.lat();
     this.center.lng = payload.geometry.location.lng();
+  }
+
+  private async setMarker (): Promise<void> {
+    this.popup = !this.popup;
     const data = {
-      lat: payload.geometry.location.lat(),
-      lng: payload.geometry.location.lng(),
+      lat: this.autocompleteInfo.geometry.location.lat(),
+      lng: this.autocompleteInfo.geometry.location.lng(),
+      title: this.title
     };
     this.markers.push(data)
     await db.collection('coords').add(data);
@@ -173,6 +182,10 @@ export default class HelloWorld extends Vue {
       height: 60px;
       position: absolute;
       background-color: #d52420;
+    }
+    &__add {
+      width: 95px;
+      margin-top: 30px;
     }
   }
   &__map {
