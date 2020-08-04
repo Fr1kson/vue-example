@@ -166,7 +166,7 @@ export default class HelloWorld extends Vue {
       width: 60px;
       height: 60px;
       position: absolute;
-      background-color: #d52420;
+      background-color: #D50320;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -181,7 +181,7 @@ export default class HelloWorld extends Vue {
       width: 60px;
       height: 60px;
       position: absolute;
-      background-color: #d52420;
+      background-color: #D50320;
     }
     &__add {
       width: 95px;
