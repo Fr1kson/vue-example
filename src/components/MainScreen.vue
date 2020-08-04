@@ -102,14 +102,16 @@ export default class HelloWorld extends Vue {
   }
 
   private async setMarker (): Promise<void> {
-    this.popup = !this.popup;
-    const data = {
-      lat: this.autocompleteInfo.geometry.location.lat(),
-      lng: this.autocompleteInfo.geometry.location.lng(),
-      title: this.title
-    };
-    this.markers.push(data)
-    await db.collection('coords').add(data);
+    if (this.title != "" && this.autocompleteInfo) {
+      this.popup = !this.popup;
+      const data = {
+        lat: this.autocompleteInfo.geometry.location.lat(),
+        lng: this.autocompleteInfo.geometry.location.lng(),
+        title: this.title
+      };
+      this.markers.push(data)
+      await db.collection('coords').add(data);
+    }
   }
 
   private async popupShow (): Promise<void> {
