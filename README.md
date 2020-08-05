@@ -1,4 +1,4 @@
-# google-maps
+# Vue-example
 
 ## Project setup
 ```
